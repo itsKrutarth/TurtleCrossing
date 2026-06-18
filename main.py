@@ -17,6 +17,8 @@ turtle.penup()
 turtle.color("black")
 turtle.setheading(90)
 turtle.goto(0, -270)
+rate = 10
+score = 0
 # turtle.speed(10)
 cars = Car()
 def MoveUp():
@@ -25,12 +27,16 @@ def MoveUp():
 screen.listen()
 screen.onkey(MoveUp, "Up")
 
+
 while game_is_on:
     time.sleep(0.1)
     cars.createCar()
-    cars.moveCar(10)
+    cars.moveCar(rate)
     screen.update()
-
-
+    game_is_on = cars.checkTurtle(turtle, score)
+    if(turtle.ycor()>300):
+        rate+=2
+        turtle.goto(0, -270)
+        score +=1
 
 screen.exitonclick()

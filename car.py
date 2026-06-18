@@ -28,3 +28,15 @@ class Car():
     def moveCar(self, rate):
         for car in self.all_cars:
             car.forward(rate)
+
+    def checkTurtle(self, turtle, score):
+        for car in self.all_cars:
+            if (car.distance(turtle)<10):
+                turtle2 = Turtle()
+                turtle2.penup()
+                turtle2.hideturtle()
+                turtle2.color("black")
+                turtle2.goto(0, 0)
+                turtle2.write(f"GAME OVER :( Your Score: {score}", False, align="center", font=("Arial", 24, "normal"))
+                return False
+        return True
