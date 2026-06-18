@@ -1,6 +1,7 @@
 import time
 from turtle import Screen, Turtle
 from car import Car
+import random
 
 
 screen = Screen()
@@ -17,9 +18,12 @@ turtle.color("black")
 turtle.setheading(90)
 turtle.goto(0, -270)
 # turtle.speed(10)
-car = Car()
-
+# car = Car()
+color = ["blue", "black", "green", "yellow", "orange", "red", "grey", "purple"]
 while game_is_on:
+    color1 = color[random.randint(0,7)]
+    car = Car(color1)
+    car.moveCar(10)
 
 
 def MoveUp():
